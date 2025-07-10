@@ -2,7 +2,6 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 import sys
 import chromadb
-from chromadbx import UUIDGenerator
 
 # To call:
 # python3 make-one-embedding.py "/Users/pezzutidyer/Documents/AbqBackyardRefuge/" "my_doc_id" "18-014.pdf" "abq_backyard_refuge"
