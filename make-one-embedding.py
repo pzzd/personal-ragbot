@@ -4,9 +4,10 @@ import sys
 import chromadb
 
 # To call:
+# python3 make-one-embedding.py document_dir document_id document_file_name chromadb_name
 # python3 make-one-embedding.py "/Users/pezzutidyer/Documents/AbqBackyardRefuge/" "my_doc_id" "18-014.pdf" "abq_backyard_refuge"
 
-document_dir = sys.argv[1]
+document_dir = sys.argv[1] # ends with /
 document_id = sys.argv[2]
 file_name = sys.argv[3]
 chromadb_name = sys.argv[4]
@@ -15,7 +16,7 @@ chromadb_path = document_dir + chromadb_name
 
 
 chroma_client = chromadb.PersistentClient(path=chromadb_path)
-collection = chroma_client.create_collection(name=chromadb_name)
+collection = chroma_client.get_or_create_collection(name=chromadb_name)
 
 print(f"Loading document from: {file_path}")
 loader = PyPDFLoader(file_path)
