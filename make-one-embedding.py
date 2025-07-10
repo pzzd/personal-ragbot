@@ -31,7 +31,10 @@ for index,chunk in enumerate(document_chunks):
     print(f"Processing index {index}")
     print(f"Chunk ID: {chunk_id}")
     print(f"Chunk length: {len(chunk.page_content)}")
+
+    chunk.metadata["document_id"] = document_id
     print(f"Chunk metadata: {chunk.metadata}")
+
     print(f"Chunk content: {chunk.page_content[:100]}...")  # Print first 100 characters of the chunk
     print("-" * 80)  # Separator for readability
 
